@@ -2,11 +2,20 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'jedi-estudantes',
-    templateUrl: './lista-estudantes.component.html'
+    templateUrl: './lista-estudantes.component.html',
+    //styleUrls: ['./lista-estudantes.css']
 })
 export class ListaEstudantesComponent {
     tituloPagina: string = 'Lista de Estudantes';
- 
+    larguraImagem: number = 50;
+    margemImagem: number = 2;
+    exibirImagem: boolean = false;
+    filtroLista: string = 'Luke';
+
+    alternarImagem() : void {
+        this.exibirImagem = !this.exibirImagem;
+    }
+
     estudantes: any[] = [
       {
         "id": 1,
