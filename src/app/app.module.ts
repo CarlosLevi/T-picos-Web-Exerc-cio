@@ -5,11 +5,15 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SexoPipe } from './compartilhado/sexo.pipe';
+import { AlturaComponent } from './compartilhado/altura.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListaEstudantesComponent
+    ListaEstudantesComponent,
+    SexoPipe,
+    AlturaComponent
   ],
   imports: [
     BrowserModule,
