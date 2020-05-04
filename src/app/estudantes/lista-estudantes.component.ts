@@ -30,13 +30,26 @@ export class ListaEstudantesComponent implements OnInit {
 
     estudantesFiltrados: IEstudante[];
     estudantes: IEstudante[] = [];
+    mensagemErro: string;
 
     ngOnInit(): void {
-        this.estudantes = this.estudanteService.getEstudantes();
+        this.getEstudantes();
+        /*this.estudantes = this.estudanteService.getEstudantes();
         this.estudantesFiltrados = this.estudantes;
         this.filtroLista = '';
         this.alturasEstudantes = this.estudantes.map(estudante => estudante.altura);
-        this.alturaMaxima = Math.max.apply(null, this.alturasEstudantes);
+        this.alturaMaxima = Math.max.apply(null, this.alturasEstudantes);*/
+    }
+
+    getEstudantes(): void {
+        this.estudanteService.getEstudantes().subscribe(
+          estudantes => {
+            this.estudantes = estudantes;
+            this.estudantesFiltrados = this.estudantes;
+            this.filtroLista = '';
+          },
+          error => this.mensagemErro = <any>error
+        );
     }
 
     alternarImagem(): void {
