@@ -1,7 +1,7 @@
 import { ListaEstudantesComponent } from './estudantes/lista-estudantes.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,7 @@ import { AlturaComponent } from './compartilhado/altura.component';
 import { EstudanteDetalheComponent } from './estudantes/estudante-detalhe/estudante-detalhe.component';
 import { BemVindoComponent } from './home/bem-vindo/bem-vindo.component';
 import { RouterModule } from '@angular/router';
+import { EstudanteEditarComponent } from './estudantes/estudante-editar/estudante-editar.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { RouterModule } from '@angular/router';
     SexoPipe,
     AlturaComponent,
     EstudanteDetalheComponent,
+    EstudanteEditarComponent,
     BemVindoComponent
   ],
   imports: [
@@ -26,9 +28,11 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'estudantes', component: ListaEstudantesComponent },
       { path: 'estudantes/:id', component: EstudanteDetalheComponent },
+      { path: 'estudantes/:id/editar', component: EstudanteEditarComponent },
       { path: 'bemvindo', component: BemVindoComponent },
       { path: '', redirectTo: 'bemvindo', pathMatch: 'full'},
       { path: '**', redirectTo: 'bemvindo', pathMatch: 'full'}
